@@ -1,9 +1,12 @@
 let myLibrary = [];
+
+//Getting the stored Books
 if(localStorage.getItem('library')) {
     myLibrary = JSON.parse( localStorage.getItem('library') );
 }
-showBooks()
 
+//Displaying Books
+showBooks()
 
 
 // Book Constructor
@@ -31,6 +34,7 @@ function showBooks() {
     myLibrary.forEach(displayBook);
 }
 
+// Function to create the table rows
 function displayBook(book) {
     const table = document.getElementById('display-books') 
     let newTr = document.createElement('tr');
@@ -46,10 +50,19 @@ function displayBook(book) {
     }
     createTd(status, newTr);
 }
+
+// Function to create the row itens
 function createTd(text, tr) {
      let newTd = document.createElement('td');
      newTd.textContent = text;
      tr.appendChild(newTd);
+}
+
+
+// Display and Hide 'New Book' Form
+function displayForm() {
+    const dform = document.getElementById('formBook');
+    dform.classList.toggle("d-none");
 }
 
 
