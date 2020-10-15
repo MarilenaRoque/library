@@ -1,4 +1,10 @@
 let myLibrary = [];
+if(localStorage.getItem('library')) {
+    myLibrary = JSON.parse( localStorage.getItem('library') );
+}
+showBooks()
+
+
 
 // Book Constructor
 function Book(title, author, pages, read) {
@@ -16,13 +22,12 @@ function addBookToLibrary() {
   let read = document.getElementById('read').checked;
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
-  
-  showBooks();
+  localStorage.setItem('library', JSON.stringify(myLibrary));
+  document.location.reload();
 }
 
 // Function to Display the Books
 function showBooks() {
-    console.log(myLibrary);
     myLibrary.forEach(displayBook);
 }
 
