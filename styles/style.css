@@ -1,6 +1,9 @@
 
 main {
-    width: 50%;
+    width: 80%;
     margin: auto;
 }
 
+.display-books {
+    width: 100%;
+}
