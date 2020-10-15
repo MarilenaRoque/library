@@ -55,14 +55,19 @@ function displayBook(book, index) {
     onclinkText = "removeBook(" + index + ")";
     createButton(onclinkText, removeTd)
 
-    // Creating Change Status Button
-    
-
-
-    // IMPLEMENT BUTTON
+    // // Creating Change Status Button
+    let statusTd = document.createElement('td');
+    newTr.appendChild(statusTd);
+    textReadButton = readButtonText(index);
+    onclinkText = "changeReadStatus(" + index + ")";
+    createButton(onclinkText, statusTd, textReadButton)
 
 }
-
+function readButtonText(index) {
+    let text;
+    (myLibrary[index].read) ? text = "Set as Unread" : text = "Set as Read"
+    return text;
+}
 // Function to create the row itens
 function createTd(text, tr) {
      let newTd = document.createElement('td');
@@ -85,9 +90,9 @@ function removeBook(index) {
 }
 
 //create Button
-function createButton(onclickText, removeTd) {
+function createButton(onclickText, removeTd, text="Remove") {
     const newButton = document.createElement('button');
-    newButton.textContent = "Remove";
+    newButton.textContent = text;
     newButton.setAttribute('onclick', onclickText);
     removeTd.appendChild(newButton);
 }
