@@ -11,8 +11,8 @@
   <body>
 
     <main>
-        <h1> My Library </h1>
-        <button type="button" onclick="displayForm()"> New Book</button>
+        <h1> MY LIBRARY </h1>
+        <button class="new-book" type="button" onclick="displayForm()"> New Book</button>
         <!-- Book Form -->
 
         <form id='formBook' class="d-none">
@@ -23,7 +23,7 @@
           <label for="pages">Pages:</label><br>
           <input type="number" id="pages" name="pages"><br>
           <input type="checkbox" id="read" name="read">
-          <label for="read">I've already read it.</label><br>
+          <label for="read">I've already read it.</label><br><br>
           <input type="button" onclick="addBookToLibrary()" value="Submit">
         </form>
 
