@@ -25,8 +25,7 @@ function addBookToLibrary() {
   let read = document.getElementById('read').checked;
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
-  localStorage.setItem('library', JSON.stringify(myLibrary));
-  document.location.reload();
+  reloadPage()
 }
 
 // Function to Display the Books
@@ -82,8 +81,7 @@ function displayForm() {
 
 function removeBook(index) {
     myLibrary.splice(index, 1);
-    localStorage.setItem('library', JSON.stringify(myLibrary));
-    document.location.reload();
+    reloadPage()
 }
 
 //create Button
@@ -98,7 +96,13 @@ function createButton(onclickText, removeTd) {
 
 function changeReadStatus(index) {
    (myLibrary[index].read) ? myLibrary[index].read = false : myLibrary[index].read = true
-   localStorage.setItem('library', JSON.stringify(myLibrary));
+   reloadPage()
+}
+
+// set function to reload page
+
+function reloadPage() {
+    localStorage.setItem('library', JSON.stringify(myLibrary));
     document.location.reload();
 }
 
