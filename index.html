@@ -10,7 +10,23 @@
   </head>
   <body>
 
+    <main>
+    
+        <!-- Book Form -->
 
+        <form id='formBook'>
+          <label for="title">Title:</label><br>
+          <input type="text" id="title" name="title"><br>
+          <label for="author">Author:</label><br>
+          <input type="text" id="author" name="author"><br>
+          <label for="pages">Pages:</label><br>
+          <input type="number" id="pages" name="pages"><br>
+          <input type="checkbox" id="read" name="read">
+          <label for="read">I've already read it.</label><br>
+          <input type="button" onclick="addBookToLibrary()" value="Submit">
+        </form>
+ 
+  </main>
 
     <script src="scripts/main.js"></script>
     <!-- Optional JavaScript used by BOOTSTRAP -->
