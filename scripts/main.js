@@ -49,10 +49,19 @@ function displayBook(book, index) {
         status = "Read";
     }
     createTd(status, newTr);
+
+    //Creating Remove button
     let removeTd = document.createElement('td');
     newTr.appendChild(removeTd);
     onclinkText = "removeBook(" + index + ")";
     createButton(onclinkText, removeTd)
+
+    // Creating Change Status Button
+    
+
+
+    // IMPLEMENT BUTTON
+
 }
 
 // Function to create the row itens
@@ -84,6 +93,15 @@ function createButton(onclickText, removeTd) {
     newButton.setAttribute('onclick', onclickText);
     removeTd.appendChild(newButton);
 }
+
+// Trigged when change status button on click
+
+function changeReadStatus(index) {
+   (myLibrary[index].read) ? myLibrary[index].read = false : myLibrary[index].read = true
+   localStorage.setItem('library', JSON.stringify(myLibrary));
+    document.location.reload();
+}
+
 
 
 
