@@ -1,53 +1,52 @@
 
 main {
-    width: 80%;
-    margin: auto;
+  width: 80%;
+  margin: auto;
 }
 
 .display-books {
-    width: 100%;
+  width: 100%;
 }
 
 h1 {
-    margin: 30px 0px 30px;
-    text-align: center;
-    font-weight: bold;
-    padding: 10px;
-    color: white;
-    background-color: #F4845F;
+  margin: 30px 0 30px;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  color: white;
+  background-color: #f4845f;
 }
 
 .new-book {
-    text-align: center;
+  text-align: center;
 }
 
 #formBook {
-    padding: 20px;
-    background-color: whitesmoke;
-    margin: 20px 100px;
-    border: solid 1px gray;
+  padding: 20px;
+  background-color: whitesmoke;
+  margin: 20px 100px;
+  border: solid 1px gray;
 }
 
 button {
-    color:white;
-    border: none;
-    background-color: rgb(161, 160, 160);
-    text-align: center;
-    width: 120px;
-    border-radius: 8px;
-    padding: 5px;
-    font-weight: bold;
+  color: white;
+  border: none;
+  background-color: rgb(161, 160, 160);
+  text-align: center;
+  width: 120px;
+  border-radius: 8px;
+  padding: 5px;
+  font-weight: bold;
 }
 
 label {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 table {
-    margin-top: 45px;
+  margin-top: 45px;
 }
 
 tr {
-    padding: 30px;
+  padding: 30px;
 }
-
