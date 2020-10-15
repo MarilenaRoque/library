@@ -35,7 +35,7 @@ function showBooks() {
 }
 
 // Function to create the table rows
-function displayBook(book) {
+function displayBook(book, index) {
     const table = document.getElementById('display-books') 
     let newTr = document.createElement('tr');
     table.appendChild(newTr);
@@ -49,6 +49,10 @@ function displayBook(book) {
         status = "Read";
     }
     createTd(status, newTr);
+    let removeTd = document.createElement('td');
+    newTr.appendChild(removeTd);
+    onclinkText = "removeBook(" + index + ")";
+    createButton(onclinkText, removeTd)
 }
 
 // Function to create the row itens
@@ -63,6 +67,22 @@ function createTd(text, tr) {
 function displayForm() {
     const dform = document.getElementById('formBook');
     dform.classList.toggle("d-none");
+}
+
+// Function to Remove Book
+
+function removeBook(index) {
+    myLibrary.splice(index, 1);
+    localStorage.setItem('library', JSON.stringify(myLibrary));
+    document.location.reload();
+}
+
+//create Button
+function createButton(onclickText, removeTd) {
+    const newButton = document.createElement('button');
+    newButton.textContent = "Remove";
+    newButton.setAttribute('onclick', onclickText);
+    removeTd.appendChild(newButton);
 }
 
 
