@@ -1,5 +1,15 @@
 let myLibrary = [];
 
+//Getting Buttons
+const dFormBtn = document.getElementById('d-form')
+const submitFormBtn = document.getElementById('submit-form')
+
+
+
+//Event Listeners for the Buttons
+dFormBtn.addEventListener('click', displayForm)
+submitFormBtn.addEventListener('click', addBookToLibrary)
+
 // Getting the stored Books
 if (localStorage.getItem('library')) {
   myLibrary = JSON.parse(localStorage.getItem('library'));
@@ -42,6 +52,7 @@ function createTd(text, tr) {
   newTd.textContent = text;
   tr.appendChild(newTd);
 }
+
 
 
 // Display and Hide 'New Book' Form
