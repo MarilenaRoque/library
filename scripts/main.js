@@ -1,15 +1,5 @@
 let myLibrary = [];
 
-//Getting Buttons
-const dFormBtn = document.getElementById('d-form')
-const submitFormBtn = document.getElementById('submit-form')
-
-
-
-//Event Listeners for the Buttons
-dFormBtn.addEventListener('click', displayForm)
-submitFormBtn.addEventListener('click', addBookToLibrary)
-
 // Getting the stored Books
 if (localStorage.getItem('library')) {
   myLibrary = JSON.parse(localStorage.getItem('library'));
@@ -54,7 +44,6 @@ function createTd(text, tr) {
 }
 
 
-
 // Display and Hide 'New Book' Form
 function displayForm() { // eslint-disable-line no-unused-vars
   const dform = document.getElementById('formBook');
@@ -69,10 +58,10 @@ function removeBook(index) { // eslint-disable-line no-unused-vars
 }
 
 // create Button
-function createButton(onclickText, removeTd, text = 'Remove') {
+function createButton(idText, removeTd, text = 'Remove') {
   const newButton = document.createElement('button');
   newButton.textContent = text;
-  newButton.setAttribute('onclick', onclickText);
+  newButton.setAttribute('id', idText);
   removeTd.appendChild(newButton);
 }
 
@@ -102,15 +91,15 @@ function displayBook(book, index) {
   // Creating Remove button
   const removeTd = document.createElement('td');
   newTr.appendChild(removeTd);
-  let onclinkText = `removeBook(${index})`;
-  createButton(onclinkText, removeTd);
+  let idText = `remove${index}`;
+  createButton(idText, removeTd);
 
   // // Creating Change Status Button
   const statusTd = document.createElement('td');
   newTr.appendChild(statusTd);
   const textReadButton = readButtonText(index);
-  onclinkText = `changeReadStatus(${index})`;
-  createButton(onclinkText, statusTd, textReadButton);
+  idText = `changeStatus${index}`;
+  createButton(idText, statusTd, textReadButton);
 }
 
 // Function to Display the Books
@@ -121,3 +110,18 @@ function showBooks() {
 
 // Displaying Books
 showBooks();
+
+// Set Event Listeners to different buttons
+document.addEventListener('click', (e) => {
+  if (e.target && e.target.id === 'd-form') {
+    displayForm();
+  } else if (e.target && e.target.id === 'submit-form') {
+    addBookToLibrary();
+  } else if (e.target && (e.target.id).includes('remove')) {
+    const buttonIndex = (e.target.id).substr(e.target.id.length - 1);
+    removeBook(buttonIndex);
+  } else if (e.target && (e.target.id).includes('changeStatus')) {
+    const buttonIndex = (e.target.id).substr(e.target.id.length - 1);
+    changeReadStatus(buttonIndex);
+  }
+});
