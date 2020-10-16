@@ -1,35 +1,13 @@
+// eslint-disable-next-line import/extensions
+import * as logic from './logic.js';
+
+import {
+  addBookToLibrary,
+  // eslint-disable-next-line import/extensions
+} from './logic.js';
+
 let myLibrary = [];
-
-// Getting the stored Books
-if (localStorage.getItem('library')) {
-  myLibrary = JSON.parse(localStorage.getItem('library'));
-}
-
-// set function to reload page
-function reloadPage() {
-  localStorage.setItem('library', JSON.stringify(myLibrary));
-  document.location.reload();
-}
-// Book Constructor
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
-
-
-// Function to get Book info from the form and create a new Book instance
-function addBookToLibrary() { // eslint-disable-line no-unused-vars
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-  const pages = document.getElementById('pages').value;
-  const read = document.getElementById('read').checked;
-  const newBook = new Book(title, author, pages, read);
-  myLibrary.push(newBook);
-  reloadPage();
-}
-
+myLibrary = logic.pageInit();
 
 function readButtonText(index) {
   let text = '';
@@ -54,7 +32,7 @@ function displayForm() { // eslint-disable-line no-unused-vars
 
 function removeBook(index) { // eslint-disable-line no-unused-vars
   myLibrary.splice(index, 1);
-  reloadPage();
+  logic.reloadPage();
 }
 
 // create Button
@@ -69,7 +47,7 @@ function createButton(idText, removeTd, text = 'Remove') {
 
 function changeReadStatus(index) { // eslint-disable-line no-unused-vars
   myLibrary[index].read = !(myLibrary[index].read);
-  reloadPage();
+  logic.reloadPage();
 }
 
 // Function to create the table rows
