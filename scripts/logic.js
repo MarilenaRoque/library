@@ -31,8 +31,10 @@ export function addBookToLibrary() { // eslint-disable-line no-unused-vars
   const pages = document.getElementById('pages').value;
   const read = document.getElementById('read').checked;
   const newBook = new Book(title, author, pages, read);
-  myLibrary.push(newBook);
-  reloadPage();
+  if (title && author && pages) {
+    myLibrary.push(newBook);
+    reloadPage();
+  }
 }
 
 export {
