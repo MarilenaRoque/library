@@ -1,6 +1,5 @@
 # My Library - Javascript
 
-⚠️ I am allowed by Microverse to make this Project Solo ⚠️
 > A simple Library App, where the user can add books information and view the registered books. Developed using: HTML, CSS, and Javascript. 
 
 
