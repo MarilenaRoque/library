@@ -3,7 +3,7 @@
 > A simple Library App, where the user can add books information and view the registered books. Developed using: HTML, CSS, and Javascript. 
 
 
-### You can access a Live Demo [HERE](https://rawcdn.githack.com/MarilenaRoque/library/feature/building_app/index.html)
+### You can access a Live Demo [HERE](https://rawcdn.githack.com/MarilenaRoque/library/96be2d69e9e9e13894824c935af4edbd68de85e4/index.html)
 
 ![Screenshot](./images/screenshot.png)
 
