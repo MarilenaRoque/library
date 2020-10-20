@@ -1,10 +1,7 @@
 // Book Constructor
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
+const Book = (title, author, pages, read) => ({
+  title, author, pages, read,
+});
 
 let myLibrary = [];
 
@@ -30,13 +27,9 @@ export function addBookToLibrary() { // eslint-disable-line no-unused-vars
   const author = document.getElementById('author').value;
   const pages = document.getElementById('pages').value;
   const read = document.getElementById('read').checked;
-  const newBook = new Book(title, author, pages, read);
+  const newBook = Book(title, author, pages, read);
   if (title && author && pages) {
     myLibrary.push(newBook);
     reloadPage();
   }
 }
-
-export {
-  Book,
-};
