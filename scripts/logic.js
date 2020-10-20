@@ -1,7 +1,7 @@
 // Book Constructor
-const Book = (title, author, pages, read) => {
-  return {title, author, pages, read}
-}
+const Book = (title, author, pages, read) => ({
+  title, author, pages, read,
+});
 
 let myLibrary = [];
 
@@ -33,4 +33,3 @@ export function addBookToLibrary() { // eslint-disable-line no-unused-vars
     reloadPage();
   }
 }
-
