@@ -3,6 +3,7 @@ const Book = (title, author, pages, read) => ({
   title, author, pages, read,
 });
 
+
 let myLibrary = [];
 
 // set function to reload page
@@ -27,9 +28,10 @@ export function addBookToLibrary() { // eslint-disable-line no-unused-vars
   const author = document.getElementById('author').value;
   const pages = document.getElementById('pages').value;
   const read = document.getElementById('read').checked;
-  const newBook = Book(title, author, pages, read);
+  const newBook = new Book(title, author, pages, read);
   if (title && author && pages) {
     myLibrary.push(newBook);
     reloadPage();
   }
 }
+
